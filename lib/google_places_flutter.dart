@@ -59,6 +59,13 @@ class _GooglePlaceAutoCompleteTextFieldState
         style: widget.textStyle,
         controller: widget.textEditingController,
         onChanged: (string) => (subject.add(string)),
+        validator: (value) {
+          if (widget.textEditingController.text == null ||
+              widget.textEditingController.text.isEmpty) {
+            return 'addPlace.address_required_message'.tr.capitalizeFirst;
+          }
+          return null;
+        },
       ),
     );
   }
