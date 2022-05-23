@@ -34,7 +34,7 @@ class GooglePlaceAutoCompleteTextField extends StatefulWidget {
       this.textStyle: const TextStyle(),
       this.countries,
       this.getPlaceDetailWithLatLng,
-      this.address_required_message
+      required this.address_required_message
       });
 
   @override
