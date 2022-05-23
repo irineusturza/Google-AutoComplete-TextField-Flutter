@@ -19,6 +19,7 @@ class GooglePlaceAutoCompleteTextField extends StatefulWidget {
 
   TextStyle textStyle;
   String googleAPIKey;
+  String address_required_message;
   int debounceTime = 600;
   List<String>? countries = [];
   TextEditingController textEditingController = TextEditingController();
@@ -33,6 +34,7 @@ class GooglePlaceAutoCompleteTextField extends StatefulWidget {
       this.textStyle: const TextStyle(),
       this.countries,
       this.getPlaceDetailWithLatLng,
+      this.address_required_message
       });
 
   @override
@@ -62,7 +64,7 @@ class _GooglePlaceAutoCompleteTextFieldState
         validator: (value) {
           if (widget.textEditingController.text == null ||
               widget.textEditingController.text.isEmpty) {
-            return 'addPlace.address_required_message'.tr.capitalizeFirst;
+            return widget.address_required_message;
           }
           return null;
         },
